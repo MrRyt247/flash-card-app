@@ -1,8 +1,10 @@
 <script lang="ts">
-	let { data } = $props();
+	let { data, flipped } = $props();
+
+    // let isFlipped: boolean = $derived(flipped);
 </script>
 
-<div class="card">
+<div class="card {flipped ? 'flipped' : ''}">
 	<div class="front"><h1>{data.question}</h1></div>
 	<div class="back"><p>{data.answer}</p></div>
 </div>
@@ -21,8 +23,8 @@
 		cursor: pointer;
 	}
 
-	.card .flipped {
-		transform: rotateY(0);
+	.card.flipped {
+		transform: rotateY(180deg);
 	}
 
 	.front,
@@ -38,7 +40,7 @@
 		left: 0;
 		backface-visibility: hidden;
 		border-radius: 5px;
-		background-color: #eee;
+		background-color: #f5f5f5;
 		padding: 1rem;
 		box-sizing: border-box;
 	}

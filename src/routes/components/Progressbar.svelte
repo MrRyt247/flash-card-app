@@ -1,14 +1,14 @@
 <script lang="ts">
 	let { total, index } = $props();
 
-    let currentQuestion = index + 1;
-	let progress: number = (currentQuestion / total) * 100;
-    let percentagePos: number = progress < 50 ? progress : 50;
+	let currentQuestion = $derived(index + 1);
+	let progress: number = $derived(Math.round((currentQuestion / total) * 100));
+	let percentagePos: number = $derived(progress < 50 ? progress : 50);
 </script>
 
-<div class="container" style:--progress={progress}%>
+<div class="container" style:--progress="{progress}%">
 	<div class="bar"></div>
-    <span class="percent" style:--percentagePos={percentagePos}%>{progress}%</span>
+	<span class="percent" style:--percentagePos="{percentagePos}%">{progress}%</span>
 	<span>{currentQuestion} of {total}</span>
 </div>
 
@@ -21,8 +21,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-        margin-bottom: 1rem;
-        position: relative;
+		margin-bottom: 1rem;
+		position: relative;
 	}
 
 	.bar {
@@ -32,17 +32,17 @@
 		border-radius: 5px;
 	}
 
-    .percent {
-        left: var(--percentagePos);
-        /* left: 0; */
-        right: unset;
-        transform: translate(25%, -50%);
-    }
+	.percent {
+		left: var(--percentagePos);
+		/* left: 0; */
+		right: unset;
+		transform: translate(25%, -50%);
+	}
 
 	span {
-        position: absolute;
-        top: 50%;
-        right: 0;
+		position: absolute;
+		top: 50%;
+		right: 0;
 		transform: translate(-25%, -50%);
 		font-size: 1rem;
 		color: #333;
