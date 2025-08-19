@@ -1,15 +1,13 @@
 <script lang="ts">
-	import type { derived } from 'svelte/store';
 	import Button from './components/Button.svelte';
 	import Card from './components/Card.svelte';
 	import Progressbar from './components/Progressbar.svelte';
-	import { data } from './components/data';
+	import { data } from './data/data';
 
 	let total: number = data.length;
 	let index: number = $state(0);
 	let currentQuestion: { question: string; answer: string } = $derived(data[index]);
 	let isAnsShown: boolean = $state(false);
-	// let flipped: boolean = $derived(isAnsShown);
 </script>
 
 <h1>Flash Cards</h1>
@@ -19,24 +17,24 @@
 	<Card data={currentQuestion} flipped={isAnsShown} />
 	<div class="buttons">
 		<Button
-			name={'< Previous'}
+			name="< Previous"
 			action={() => {
 				if (isAnsShown) {
-					isAnsShown = !isAnsShown;        // Hide answer before going back
-					setTimeout(() => index--, 250);  // Delay mid-transition    
+					isAnsShown = !isAnsShown; // Hide answer before going back
+					setTimeout(() => index--, 250); // Delay mid-transition
 				} else index--;
 			}}
 			disable={index === 0}
-			style={'nav'}
+			style="nav"
 		/>
 		<Button
 			name={isAnsShown ? 'Hide Answer' : 'Show Answer'}
 			action={() => (isAnsShown = !isAnsShown)}
-			disable={null}
-			style={'action'}
+			disable={false}
+			style="action"
 		/>
 		<Button
-			name={'Next >'}
+			name="Next >"
 			action={() => {
 				if (isAnsShown) {
 					isAnsShown = !isAnsShown;
@@ -44,7 +42,7 @@
 				} else index++;
 			}}
 			disable={index === total - 1}
-			style={'nav'}
+			style="nav"
 		/>
 	</div>
 </div>
@@ -58,7 +56,7 @@
 		padding: 0;
 		font-family: cursive, sans-serif;
 		max-width: 720px;
-        min-width: 320px;
+		min-width: 320px;
 	}
 
 	h1 {

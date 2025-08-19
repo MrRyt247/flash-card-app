@@ -88,5 +88,5 @@ export const data = [
 		question: 'What is a conditional statement?',
 		answer:
 			'A conditional statement executes different code blocks based on whether a condition is true or false, such as if-else statements.'
-	},
+	}
 ];

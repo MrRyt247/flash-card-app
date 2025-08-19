@@ -1,6 +1,5 @@
 <script lang="ts">
 	let { total, index } = $props();
-
 	let currentQuestion = $derived(index + 1);
 	let progress: number = $derived(Math.round((currentQuestion / total) * 100));
 	let percentagePos: number = $derived(progress < 50 ? progress : 50);
@@ -34,7 +33,6 @@
 
 	.percent {
 		left: var(--percentagePos);
-		/* left: 0; */
 		right: unset;
 		transform: translate(25%, -50%);
 	}

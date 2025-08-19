@@ -1,7 +1,5 @@
 <script lang="ts">
 	let { data, flipped } = $props();
-
-    // let isFlipped: boolean = $derived(flipped);
 </script>
 
 <div class="card {flipped ? 'flipped' : ''}">
@@ -16,13 +14,13 @@
 		aspect-ratio: 4 / 3;
 		width: 100%;
 		height: fit-content;
-        max-height: 440px;
+		max-height: 440px;
 		transform-style: preserve-3d;
 		transition: transform 0.5s ease-in-out;
 		padding: 0;
 		user-select: none;
 		cursor: pointer;
-        font-size: clamp(.75rem, 2.4vw, 1.5rem);
+		font-size: clamp(0.75rem, 2.4vw, 1.5rem);
 	}
 
 	.card.flipped {
@@ -38,7 +36,7 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
-        max-height: 440px;
+		max-height: 440px;
 		top: 0;
 		left: 0;
 		backface-visibility: hidden;
@@ -50,7 +48,7 @@
 
 	.back {
 		transform: rotateY(180deg);
-        font-size: clamp(1.25rem, 3.4vw, 1.75rem);
-        text-wrap: pretty;
+		font-size: clamp(1.25rem, 3.4vw, 1.75rem);
+		text-wrap: pretty;
 	}
 </style>
