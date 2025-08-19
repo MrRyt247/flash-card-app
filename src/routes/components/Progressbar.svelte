@@ -19,12 +19,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+        margin-bottom: 1rem;
         position: relative;
 	}
 
 	.bar {
 		width: var(--progress);
-		height: 20px;
+		height: 2rem;
 		background-color: lightgrey;
 		border-radius: 5px;
 	}
@@ -34,7 +35,7 @@
         top: 50%;
         right: 0;
 		transform: translate(-25%, -50%);
-		font-size: 14px;
+		font-size: 1rem;
 		color: #333;
 	}
 </style>
