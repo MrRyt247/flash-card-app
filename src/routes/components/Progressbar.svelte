@@ -3,10 +3,12 @@
 
     let currentQuestion = index + 1;
 	let progress: number = (currentQuestion / total) * 100;
+    let percentagePos: number = progress < 50 ? progress : 50;
 </script>
 
 <div class="container" style:--progress={progress}%>
 	<div class="bar"></div>
+    <span class="percent" style:--percentagePos={percentagePos}%>{progress}%</span>
 	<span>{currentQuestion} of {total}</span>
 </div>
 
@@ -29,6 +31,13 @@
 		background-color: lightgrey;
 		border-radius: 5px;
 	}
+
+    .percent {
+        left: var(--percentagePos);
+        /* left: 0; */
+        right: unset;
+        transform: translate(25%, -50%);
+    }
 
 	span {
         position: absolute;

@@ -4,7 +4,7 @@
 	import { data } from './components/data';
 
 	let total: number = data.length;
-	let index: number = $state(0);
+	let index: number = $state(2);
 	let currentQuestion: { question: string; answer: string } = data[index];
 	let isAnsShown: boolean = $state(false);
 </script>
