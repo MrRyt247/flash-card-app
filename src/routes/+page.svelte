@@ -18,14 +18,34 @@
 <div class="container">
 	<Card data={currentQuestion} flipped={isAnsShown} />
 	<div class="buttons">
-		<Button name={'< Previous'} action={() => index--} disable={index === 0} style={'nav'} />
+		<Button
+			name={'< Previous'}
+			action={() => {
+				if (isAnsShown) {
+					isAnsShown = !isAnsShown;        // Hide answer before going back
+					setTimeout(() => index--, 250);  // Delay mid-transition    
+				} else index--;
+			}}
+			disable={index === 0}
+			style={'nav'}
+		/>
 		<Button
 			name={isAnsShown ? 'Hide Answer' : 'Show Answer'}
 			action={() => (isAnsShown = !isAnsShown)}
 			disable={null}
 			style={'action'}
 		/>
-		<Button name={'Next >'} action={() => index++} disable={index === total - 1} style={'nav'} />
+		<Button
+			name={'Next >'}
+			action={() => {
+				if (isAnsShown) {
+					isAnsShown = !isAnsShown;
+					setTimeout(() => index++, 250);
+				} else index++;
+			}}
+			disable={index === total - 1}
+			style={'nav'}
+		/>
 	</div>
 </div>
 
@@ -38,10 +58,11 @@
 		padding: 0;
 		font-family: cursive, sans-serif;
 		max-width: 720px;
+        min-width: 320px;
 	}
 
 	h1 {
-		line-height: 1rem;
+		line-height: 1.5rem;
 	}
 
 	.container {
@@ -54,9 +75,8 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.25rem;
-		aspect-ratio: 4/3;
 		position: relative;
-		perspective: 100vh;
+		perspective: 200vh;
 	}
 
 	.buttons {

@@ -9,27 +9,27 @@
 <style>
 	button {
 		border: none;
-		padding: .25rem .75rem;
+		padding: 0.25rem 0.75rem;
 		text-align: center;
 		font-size: 1.25rem;
-		/* margin: 4px 2px; */
 		cursor: pointer;
 		border-radius: 5px;
-        font-family: cursive, sans-serif;
-        background: transparent;
+		font-family: cursive, sans-serif;
+		font-size: clamp(0.75rem, 4vw, 1.35rem);
+		background: transparent;
 	}
 
-    button:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
+	button:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
 
-    .nav {
-        color: #4a4a4a;
-        font-weight: lighter;
-    }
+	.nav {
+		color: #4a4a4a;
+		font-weight: lighter;
+	}
 
-    .action {
-        font-weight: bold;
-    }
+	.action {
+		font-weight: bold;
+	}
 </style>
