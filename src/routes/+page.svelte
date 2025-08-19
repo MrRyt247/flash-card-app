@@ -1,15 +1,13 @@
 <script lang="ts">
-	import type { derived } from 'svelte/store';
 	import Button from './components/Button.svelte';
 	import Card from './components/Card.svelte';
 	import Progressbar from './components/Progressbar.svelte';
-	import { data } from './components/data';
+	import { data } from './data/data';
 
 	let total: number = data.length;
 	let index: number = $state(0);
 	let currentQuestion: { question: string; answer: string } = $derived(data[index]);
 	let isAnsShown: boolean = $state(false);
-	// let flipped: boolean = $derived(isAnsShown);
 </script>
 
 <h1>Flash Cards</h1>

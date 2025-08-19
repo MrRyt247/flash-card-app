@@ -1,7 +1,5 @@
 <script lang="ts">
 	let { data, flipped } = $props();
-
-    // let isFlipped: boolean = $derived(flipped);
 </script>
 
 <div class="card {flipped ? 'flipped' : ''}">
