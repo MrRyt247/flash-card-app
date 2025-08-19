@@ -1,0 +1,1 @@
+<h1>Welcone to Svelte</h1>
