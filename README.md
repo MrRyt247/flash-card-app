@@ -2,6 +2,10 @@
 
 A modern, interactive flash cards application built with SvelteKit and TypeScript. This app helps users learn programming concepts through an engaging and intuitive interface.
 
+# URLs
+- [ProjectURL](https://roadmap.sh/projects/flash-cards)
+- [LiveURL](https://flash-card-app-mu.vercel.app/)
+
 ## Features
 
 - 📚 Interactive flash cards with programming-related questions and answers
