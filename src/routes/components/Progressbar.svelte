@@ -2,7 +2,7 @@
 	let { total, index } = $props();
 	let currentQuestion = $derived(index + 1);
 	let progress: number = $derived(Math.round((currentQuestion / total) * 100));
-	let percentagePos: number = $derived(progress < 50 ? progress : 50);
+	let percentagePos: number = $derived(Math.max(0, Math.min(progress, 50)));
 </script>
 
 <div class="container" style:--progress="{progress}%">
@@ -29,12 +29,14 @@
 		height: 2rem;
 		background-color: lightgrey;
 		border-radius: 5px;
+		transition: width 800ms ease;
 	}
 
 	.percent {
 		left: var(--percentagePos);
 		right: unset;
 		transform: translate(25%, -50%);
+		transition: left 800ms ease;
 	}
 
 	span {
